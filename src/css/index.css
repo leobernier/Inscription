@@ -1,0 +1,36 @@
+body{
+  font-family: 'Anton', sans-serif;
+}
+
+a{
+  text-decoration : none;
+}
+
+.jumbotron{
+  text-align: center;
+  background: #546563 ;
+}
+
+.user{
+  display: flex;
+  justify-content: space-around;
+}
+
+.card-img-top{
+  height: 300px;
+  object-fit: none;
+  object-position: center;
+}
+
+.card-body {
+  text-align: center;
+}
+
+.access{
+  background: #546563;
+  color: black;
+}
+
+.commencer{
+  margin: 0 auto;
+}
