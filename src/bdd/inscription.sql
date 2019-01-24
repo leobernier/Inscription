@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 24 jan. 2019 à 12:28
+-- Généré le :  jeu. 24 jan. 2019 à 12:51
 -- Version du serveur :  5.7.19
 -- Version de PHP :  7.1.9
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `test-inscription`
+-- Base de données :  `inscription`
 --
 
 -- --------------------------------------------------------
