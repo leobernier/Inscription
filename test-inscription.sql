@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 24 jan. 2019 à 10:34
+-- Généré le :  jeu. 24 jan. 2019 à 12:28
 -- Version du serveur :  5.7.19
 -- Version de PHP :  7.1.9
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `adresse_ip`;
 CREATE TABLE IF NOT EXISTS `adresse_ip` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `adresse_ip` varchar(50) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `adresse_ip` (`adresse_ip`)
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `adresse_ip` (
 
 DROP TABLE IF EXISTS `candidat`;
 CREATE TABLE IF NOT EXISTS `candidat` (
-  `id_candidat` int(11) NOT NULL,
+  `id_candidat` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(15) NOT NULL,
   `prenom` varchar(15) NOT NULL,
   `mail` varchar(70) NOT NULL,
@@ -69,11 +69,13 @@ CREATE TABLE IF NOT EXISTS `candidat` (
 
 DROP TABLE IF EXISTS `formateur`;
 CREATE TABLE IF NOT EXISTS `formateur` (
-  `id_formateur` int(11) NOT NULL,
+  `id_formateur` int(11) NOT NULL AUTO_INCREMENT,
   `identifiant` varchar(50) NOT NULL,
   `mdp` varchar(20) NOT NULL,
   `mail` varchar(50) NOT NULL,
-  PRIMARY KEY (`id_formateur`)
+  PRIMARY KEY (`id_formateur`),
+  UNIQUE KEY `identifiant` (`identifiant`),
+  UNIQUE KEY `mail` (`mail`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -84,10 +86,17 @@ CREATE TABLE IF NOT EXISTS `formateur` (
 
 DROP TABLE IF EXISTS `questions`;
 CREATE TABLE IF NOT EXISTS `questions` (
-  `id_question` int(11) NOT NULL,
+  `id_question` int(11) NOT NULL AUTO_INCREMENT,
   `question` varchar(500) NOT NULL,
   PRIMARY KEY (`id_question`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `questions`
+--
+
+INSERT INTO `questions` (`id_question`, `question`) VALUES
+(1, 'Combien y a t-il de pokemon dans la 1ère génération ?');
 
 -- --------------------------------------------------------
 
@@ -97,14 +106,13 @@ CREATE TABLE IF NOT EXISTS `questions` (
 
 DROP TABLE IF EXISTS `reponses`;
 CREATE TABLE IF NOT EXISTS `reponses` (
-  `id_reponse` int(11) NOT NULL,
+  `id_reponse` int(11) NOT NULL AUTO_INCREMENT,
   `id_question` int(11) NOT NULL,
-  `acces` tinyint(1) NOT NULL,
+  `juste` tinyint(1) NOT NULL,
   `texte` varchar(200) NOT NULL,
   `type` text NOT NULL,
-  PRIMARY KEY (`id_reponse`),
-  UNIQUE KEY `id_question` (`id_question`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id_reponse`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Contraintes pour les tables déchargées
@@ -121,12 +129,6 @@ ALTER TABLE `adresse_ip`
 --
 ALTER TABLE `candidat`
   ADD CONSTRAINT `candidat_ibfk_1` FOREIGN KEY (`adresse_ip`) REFERENCES `adresse_ip` (`adresse_ip`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Contraintes pour la table `reponses`
---
-ALTER TABLE `reponses`
-  ADD CONSTRAINT `reponses_ibfk_1` FOREIGN KEY (`id_question`) REFERENCES `questions` (`id_question`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
