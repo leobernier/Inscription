@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 24 jan. 2019 à 12:51
+-- Généré le :  jeu. 24 jan. 2019 à 14:22
 -- Version du serveur :  5.7.19
 -- Version de PHP :  7.1.9
 
@@ -53,10 +53,10 @@ CREATE TABLE IF NOT EXISTS `candidat` (
   `adresse` varchar(163) NOT NULL,
   `ville` varchar(45) NOT NULL,
   `code_postal` varchar(5) NOT NULL,
-  `date_naissance` date NOT NULL,
+  `date_naissance` varchar(10) NOT NULL,
   `niveau_etude` varchar(10) NOT NULL,
   `adresse_ip` varchar(50) NOT NULL,
-  `resultat` json NOT NULL,
+  `resultat` json DEFAULT NULL,
   PRIMARY KEY (`id_candidat`),
   UNIQUE KEY `adresse_ip` (`adresse_ip`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `questions` (
   `id_question` int(11) NOT NULL AUTO_INCREMENT,
   `question` varchar(500) NOT NULL,
   PRIMARY KEY (`id_question`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `questions`
@@ -112,7 +112,7 @@ CREATE TABLE IF NOT EXISTS `reponses` (
   `texte` varchar(200) NOT NULL,
   `type` text NOT NULL,
   PRIMARY KEY (`id_reponse`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 --
 -- Contraintes pour les tables déchargées
