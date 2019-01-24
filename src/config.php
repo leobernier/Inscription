@@ -4,28 +4,30 @@ class BDD{
     private $bdd;
 
     /* accès à la base de donnée */
-    function accesBDD()
+    public function accesBDD()
     {
         try
         {
-            $bdd = new PDO('mysql:host=localhost;dbname=test-inscription;charset=utf8', 'root', '');
+            $bdd = new PDO('mysql:host=localhost;dbname=inscription;charset=utf8', 'root', '');
         }
         catch(Exception $e)
         {
-            die('Erreur :') $e-> getMessage();
+            die('Erreur :') .$e-> getMessage();
         }
         return $bdd;
     }
 
     /* Insertion d'un candidat */
     public function insererCandidat ($nom, $prenom, $mail, $tel, $tel_portable, $adresse, $ville, $code_postal, 
-    $date_naissance, $niveau_etude, $adresse_ip, $resultat)
+    $date_naissance, $niveau_etude, $id_adresse_ip, $resultat)
     {
         $bdd = $this->accesBDD();
 
-        $req = $bdd->prepare("INSERT INTO CANDIDAT VALUES (:nom, :prenom, :mail, :tel, :tel_portable, :adresse,
-        :ville, :code_postal, :date_naissance, :niveau_etude, :adresse, :resultat)");
+        $req = $bdd->prepare("INSERT INTO CANDIDAT (nom, prenom, mail, tel, tel_portable, adresse, ville, code_postal,
+        date_naissance, niveau_etude, id_adresse_ip, resultat) VALUES (:nom, :prenom, :mail, :tel, :tel_portable, 
+        :adresse, :ville, :code_postal, :date_naissance, :niveau_etude, :id_adresse_ip, :resultat)");
         $req->execute(array(
+            'nom'=>$nom,
             'prenom'=>$prenom, 
             'mail'=>$mail, 
             'tel'=>$tel, 
@@ -35,10 +37,10 @@ class BDD{
             'code_postal'=>$code_postal, 
             'date_naissance'=>$date_naissance,
             'niveau_etude'=>$niveau_etude, 
-            'adresse'=>$adresse_ip, 
-            'resultat'=>$resultat
-            'nom'=>$nom, 
+            'id_adresse_ip'=>$id_adresse_ip, 
+            'resultat'=>$resultat             
         ));
+        echo 'ok';
     }
 
     /* Lecture d'un candidat */
@@ -46,10 +48,11 @@ class BDD{
     {
         $bdd = $this->accesBDD();
 
-        $req = $bdd->prepare("SELECT * FROM candidat WHERE id_candidat=:id");
+        $req = $bdd->prepare("SELECT * FROM candidat WHERE id_candidat=:id_candidat");
         $req->execute(array(
             'id_candidat'=>$id
         ));
+        return $req->fetch();
     }
 
     /* Mise à jour candidat */
@@ -70,12 +73,13 @@ class BDD{
     {
         $bdd = $this->accesBDD();
 
-        $req=$bdd->prepare("SELECT * FROM adresse_ip WHERE ip=:ip");
+        $req=$bdd->prepare("SELECT * FROM adresse_ip WHERE adresse_ip=:ip");
         $req->execute(array(
             'ip'=>$ip
         ));
 
-        $donnees = count($req);
+        $donnees = $req->fetch();
+        var_dump($donnees);
         if($donnees == 0){
             return false;
         }
