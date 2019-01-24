@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `questions` (
   `id_question` int(11) NOT NULL AUTO_INCREMENT,
   `question` varchar(500) NOT NULL,
   PRIMARY KEY (`id_question`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `questions`
@@ -112,7 +112,7 @@ CREATE TABLE IF NOT EXISTS `reponses` (
   `texte` varchar(200) NOT NULL,
   `type` text NOT NULL,
   PRIMARY KEY (`id_reponse`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 --
 -- Contraintes pour les tables déchargées
