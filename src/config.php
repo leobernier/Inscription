@@ -1,4 +1,4 @@
-<?php 
+<?php
 class BDD{
 
     private $bdd;
@@ -8,7 +8,7 @@ class BDD{
     {
         try
         {
-            $bdd = new PDO('mysql:host=localhost;dbname=inscription;charset=utf8', 'root', '');
+            $bdd = new PDO('mysql:host=localhost;dbname=inscription;charset=utf8', 'root', 'root');
         }
         catch(Exception $e)
         {
@@ -18,27 +18,27 @@ class BDD{
     }
 
     /* Insertion d'un candidat */
-    public function insererCandidat ($nom, $prenom, $mail, $tel, $tel_portable, $adresse, $ville, $code_postal, 
+    public function insererCandidat ($nom, $prenom, $mail, $tel, $tel_portable, $adresse, $ville, $code_postal,
     $date_naissance, $niveau_etude, $id_adresse_ip, $resultat)
     {
         $bdd = $this->accesBDD();
 
         $req = $bdd->prepare("INSERT INTO CANDIDAT (nom, prenom, mail, tel, tel_portable, adresse, ville, code_postal,
-        date_naissance, niveau_etude, id_adresse_ip, resultat) VALUES (:nom, :prenom, :mail, :tel, :tel_portable, 
+        date_naissance, niveau_etude, id_adresse_ip, resultat) VALUES (:nom, :prenom, :mail, :tel, :tel_portable,
         :adresse, :ville, :code_postal, :date_naissance, :niveau_etude, :id_adresse_ip, :resultat)");
         $req->execute(array(
             'nom'=>$nom,
-            'prenom'=>$prenom, 
-            'mail'=>$mail, 
-            'tel'=>$tel, 
-            'tel_portable'=>$tel_portable, 
-            'adresse'=>$adresse, 
-            'ville'=>$ville, 
-            'code_postal'=>$code_postal, 
+            'prenom'=>$prenom,
+            'mail'=>$mail,
+            'tel'=>$tel,
+            'tel_portable'=>$tel_portable,
+            'adresse'=>$adresse,
+            'ville'=>$ville,
+            'code_postal'=>$code_postal,
             'date_naissance'=>$date_naissance,
-            'niveau_etude'=>$niveau_etude, 
-            'id_adresse_ip'=>$id_adresse_ip, 
-            'resultat'=>$resultat             
+            'niveau_etude'=>$niveau_etude,
+            'id_adresse_ip'=>$id_adresse_ip,
+            'resultat'=>$resultat
         ));
         echo 'ok';
     }
@@ -88,5 +88,13 @@ class BDD{
             return true;
         }
     }
+    public function questions(){
+      $bdd = $this->accesBDD();
+
+      $req = $bdd->prepare("SELECT * FROM questions");
+      $req->execute();
+      return $req->fetchAll();
+    }
 }
+
 ?>
