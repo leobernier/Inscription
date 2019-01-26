@@ -89,11 +89,17 @@ class BDD{
         }
     }
     public function questions(){
+      $tabQuestionsId = [];
+
       $bdd = $this->accesBDD();
 
-      $req = $bdd->prepare("SELECT * FROM questions");
+      $req = $bdd->prepare("SELECT id_question FROM questions RAND()");
       $req->execute();
-      return $req->fetchAll();
+
+      while ($donnees = $req->fetch()) {
+        array_push($tabQuestionsId, $donnees);
+      }
+      return $tabQuestionsId;
     }
 }
 
