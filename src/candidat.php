@@ -3,10 +3,19 @@
 <div class="container">
   <div class="intro">
     <h2>Bienvenu sur le test de sélection ! </h2>
+    <br/>
     <p>
-      Vous allez répondre à une biiip de question pour voir si vous avez le niveau pour la formation.<br />
-      Vous ne pouvez passez le test <strong>qu'une soaulé fois</strong>. Alors assurez-vous d'être piêtre :)
+      Vous allez répondre à une série de 5 questions pour vérifier votre niveau d'entrée en formation.<br />
+      <br/>
+      <strong><u>CONSIGNES</u> :</strong><br />
+      <br />
+      1. Vous ne pouvez passez le test <strong>qu'une seule fois</strong>.<br/>
+      2. Chaque bonne réponse vous octroie un point.<br/>
+      3. Chaque mauvaise réponse vous en retire un.<br/>
+      4. Vous devez obtenir un total de 5 points.<br/>
+      5. Si vous n'obtenez pas le nombre de points exigés, vous ne pourrez procédé à votre inscription.<br/>
     </p>
+    <br />
     <div class="btn btn-danger btn-lg active commencer">
       COMMENCER LE TEST
     </div>

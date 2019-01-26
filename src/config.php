@@ -88,13 +88,32 @@ class BDD{
             return true;
         }
     }
-    public function questions(){
-      $bdd = $this->accesBDD();
 
-      $req = $bdd->prepare("SELECT * FROM questions");
+    /* Renvoi 5 questions aléatoires */
+    public function listeQuestions(){
+      $tabQuestionsId = array();
+
+      $bdd = $this->accesBDD();
+      $req = $bdd->prepare("SELECT * FROM questions ORDER BY RAND() LIMIT 5");
       $req->execute();
-      return $req->fetchAll();
+
+      while ($donnees = $req->fetch()) {
+        array_push($tabQuestionsId, $donnees);
+      }
+      return $tabQuestionsId;
+    }
+
+    /* Renvoi la liste des réponses d'une question */
+    public function listeReponses($id){
+      $tabReponsesId= array();
+      $bdd = $this->accesBDD();
+      $req=$bdd->prepare("SELECT * FROM reponses WHERE id_question = ".$id);
+      $req->execute();
+
+      while ($donnees = $req->fetch()) {
+        array_push($tabReponsesId, $donnees);
+      }
+      return $tabReponsesId;
     }
 }
-
 ?>
