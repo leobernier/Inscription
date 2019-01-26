@@ -88,47 +88,33 @@ class BDD{
             return true;
         }
     }
-<<<<<<< HEAD:src/config.php
 
     /* Renvoi 5 questions aléatoires */
     public function listeQuestions(){
-      $tabQuestionsId = array();
-=======
-    public function questions(){
-      $tabQuestionsId = [];
->>>>>>> master:src/configPG.php
+      $tabQuestions = array();
 
       $bdd = $this->accesBDD();
       $req = $bdd->prepare("SELECT * FROM questions ORDER BY RAND() LIMIT 5");
       $req->execute();
 
       while ($donnees = $req->fetch()) {
-        array_push($tabQuestionsId, $donnees);
+        array_push($tabQuestions, $donnees);
       }
-      return $tabQuestionsId;
+      return $tabQuestions;
     }
 
-<<<<<<< HEAD:src/config.php
     /* Renvoi la liste des réponses d'une question */
     public function listeReponses($id){
-      $tabReponsesId= array();
+      $tabReponses = array();
+
       $bdd = $this->accesBDD();
       $req=$bdd->prepare("SELECT * FROM reponses WHERE id_question = ".$id);
       $req->execute();
 
       while ($donnees = $req->fetch()) {
-        array_push($tabReponsesId, $donnees);
+        array_push($tabReponses, $donnees);
       }
-      return $tabReponsesId;
-=======
-      $req = $bdd->prepare("SELECT id_question FROM questions RAND()");
-      $req->execute();
-
-      while ($donnees = $req->fetch()) {
-        array_push($tabQuestionsId, $donnees);
-      }
-      return $tabQuestionsId;
->>>>>>> master:src/configPG.php
+      return $tabReponses;
     }
 }
 ?>
