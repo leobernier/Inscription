@@ -116,5 +116,25 @@ class BDD{
       }
       return $tabReponses;
     }
+
+    /* Vérification ip et insertion si necessaire */
+    public function testIP($ip){
+        $ipBool;
+        $bdd = $this->accesBDD();
+        $req=$bdd->prepare("SELECT adresse_ip FROM adresse_ip WHERE adresse_ip = '".$ip."'");
+        $req->execute();
+        $resultat = $req->fetch();
+        
+        if ($resultat == false) {
+          $reqInsertIP=$bdd->prepare("INSERT INTO adresse_ip (adresse_ip) VALUES (:ip)");
+          $reqInsertIP->execute(array(
+            'ip' => $ip
+          ));
+          $ipBool=false;
+        }else{
+          $ipBool = true;
+        }
+        return $ipBool;
+    }
 }
 ?>
