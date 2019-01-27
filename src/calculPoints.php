@@ -14,7 +14,7 @@ $ReponseQ5RB = "";
 
 $count=0;
 
-var_dump($_POST);
+// var_dump($_POST);
 
 foreach ($_POST as $key=>$value) {
   for ($i=1; $i <6 ; $i++) {
@@ -65,39 +65,34 @@ $nbrPoints = $goClassBDD->repRBOK($ReponseQ3RB, $nbrPoints);
 $nbrPoints = $goClassBDD->repRBOK($ReponseQ4RB, $nbrPoints);
 $nbrPoints = $goClassBDD->repRBOK($ReponseQ5RB, $nbrPoints);
 
-echo 'nombre de points = '.$nbrPoints;
 /*
-if (in_array('reponseID-CB-1'.$count., $_POST)  {
-array_push($ReponseQ.$count.'CB', $value);
-}
-if ($key == ['reponseID-RB-1'.$count.']') {
-array_push($ReponseQ.$count.'RB', $value);
-}
-if (in_array('reponseID-CB-1'.$count., $_POST)  {
-array_push($ReponseQ.$count.'CB', $value);
-}
-if ($key == ['reponseID-RB-1'.$count.']') {
-array_push($ReponseQ.$count.'RB', $value);
-}
-if (in_array('reponseID-CB-1'.$count., $_POST)  {
-array_push($ReponseQ.$count.'CB', $value);
-}
-if ($key == ['reponseID-RB-1'.$count.']') {
-array_push($ReponseQ.$count.'RB', $value);
-}
-if (in_array('reponseID-CB-1'.$count., $_POST)  {
-array_push($ReponseQ.$count.'CB', $value);
-}
-if ($key == ['reponseID-RB-1'.$count.']') {
-array_push($ReponseQ.$count.'RB', $value);
-}
-if (in_array('reponseID-CB-1'.$count., $_POST)  {
-array_push($ReponseQ.$count.'CB', $value);
-}
-if ($key == ['reponseID-RB-1'.$count.']') {
-array_push($ReponseQ.$count.'RB', $value);
-}
+$nbrPoints = $goClassBDD->repCBOK($ReponseQ1CB, $nbrPoints);
+$nbrPoints = $goClassBDD->repCBOK($ReponseQ2CB, $nbrPoints);
+$nbrPoints = $goClassBDD->repCBOK($ReponseQ3CB, $nbrPoints);
+$nbrPoints = $goClassBDD->repCBOK($ReponseQ4CB, $nbrPoints);
+$nbrPoints = $goClassBDD->repCBOK($ReponseQ5CB, $nbrPoints);
+*/
+echo 'nombre de points = '.$nbrPoints;
 
+/*
 var_dump($ReponseQ1CB);
+var_dump($ReponseQ2CB);
+var_dump($ReponseQ3CB);
+var_dump($ReponseQ4CB);
+var_dump($ReponseQ5CB);
+
+echo '---------';
+
+$bool = empty($ReponseQ1CB);
+echo 'Q1CB vide ? : '.$bool;
+
+$bool = empty($ReponseQ1RB);
+echo 'Q1RB vide ? : '.$bool;
+
+var_dump($ReponseQ1CB['0']);
+var_dump($ReponseQ2CB['0']);
+var_dump($ReponseQ3CB['0']);
+var_dump($ReponseQ4CB['0']);
+var_dump($ReponseQ5CB['0']);
 */
 ?>
