@@ -41,8 +41,9 @@ function get_ip() {
       1. Vous ne pouvez passez le test <strong>qu'une seule fois</strong>.<br/>
       2. Chaque bonne réponse vous octroie un point.<br/>
       3. Chaque mauvaise réponse vous en retire un.<br/>
-      4. Vous devez obtenir un total de 5 points.<br/>
-      5. Si vous n'obtenez pas le nombre de points exigés, vous ne pourrez plus procéder à votre inscription.<br/>
+      4. Chaque réponse non répondue sera comptée comme fausse.<br/>
+      5. Vous devez obtenir un total de 5 points.<br/>
+      6. Si vous n'obtenez pas le nombre de points exigés, vous ne pourrez plus procéder à votre inscription.<br/>
     </p>
     <br />
     <div class="btn btn-danger btn-lg active commencer">
