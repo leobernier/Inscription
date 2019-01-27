@@ -158,7 +158,6 @@ class BDD{
       }
 
       /* Calcul des points pour les CB */
-      /*
       public function repCBOK($tab, $nbrPoints){
         if (empty($tab)) {
           $nbrPoints=$nbrPoints;
@@ -166,27 +165,28 @@ class BDD{
         else {
           $bdd = $this->accesBDD();
 
-
+          /* Récupération de l'id de la question */
           $req=$bdd->prepare("SELECT id_question FROM reponses WHERE id_reponse = '".$tab['0']."'");
           $req->execute();
           $id_question = $req->fetch();
 
-
-          $req=$bdd->prepare("SELECT id_reponse FROM reponses WHERE id_question = ".$id_question." AND juste = 1");
+          /* Récupération de la liste des réponses justes */
+          $req=$bdd->prepare("SELECT id_reponse FROM reponses WHERE id_question = ".(int)($id_question['id_question'])." AND juste = 1");
           $req->execute();
-          $reponseJuste=$req->fetchAll();
-
-
-          if (count($tab) != count($reponseJuste['id_reponse'])) {
-            $nbrPoints--;
+          $reponJ = array();
+          while ($reponseJuste=$req->fetch()) {
+            array_push($reponJ, $reponseJuste['id_reponse']);
           }
-          elseif(!in_array($tab, $reponseJuste['id_reponse'])){
+          $egalite = array_diff($tab, $reponJ);
+
+          if (empty($egalite)) {
+            $nbrPoints++;
+          }
+          else {
             $nbrPoints--;
-          }else {
-          $nbrPoints++;
           }
         }
         return $nbrPoints;
-      }*/
+      }
     }
     ?>
