@@ -14,9 +14,11 @@ function get_ip() {
   $ip = get_ip();
 
   $goClassBDD = new BDD;
-// renvoi false si le candidat est nouveau et true s'il existe déjà
+  // renvoi false si le candidat est nouveau et true s'il existe déjà
   $resultat = $goClassBDD->testIP($ip);
 
+ /* Controle de l'affichage en fonction de l'ip => désactivé pour pouvoir travailler sur le projet*/
+/*
   if ($resultat)
   {?>
     <div class="container">
@@ -25,6 +27,8 @@ function get_ip() {
   <?php
 }else
 {?>
+*/
+?>
 <div class="container">
   <div class="intro">
     <h2>Bienvenu sur le test de sélection ! </h2>
@@ -49,5 +53,7 @@ function get_ip() {
   </div>
 </div>
 <script src="js/main.js" charset="utf-8"></script>
+
 <?php
-}?>
+//}
+?>
