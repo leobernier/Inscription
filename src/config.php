@@ -140,8 +140,8 @@ class BDD{
       /* Calcul des points pour les RB */
       public function repRBOK($repRB, $nbrPoints){
         $bdd = $this->accesBDD();
-        if ($repRB = "") {
-          $nbrPoints--;
+        if (empty($repRB)) {
+          $nbrPoints=$nbrPoints;
         }
         else {
           $req=$bdd->prepare("SELECT juste FROM reponses WHERE id_reponse = '".$repRB."'");
@@ -158,24 +158,25 @@ class BDD{
       }
 
       /* Calcul des points pour les CB */
+      /*
       public function repCBOK($tab, $nbrPoints){
         if (empty($tab)) {
-          $nbrPoints--;
+          $nbrPoints=$nbrPoints;
         }
         else {
           $bdd = $this->accesBDD();
 
-          /* Récupération de l'id de la question */
+
           $req=$bdd->prepare("SELECT id_question FROM reponses WHERE id_reponse = '".$tab['0']."'");
           $req->execute();
           $id_question = $req->fetch();
 
-          /* Récupération de la liste des réponses justes */
+
           $req=$bdd->prepare("SELECT id_reponse FROM reponses WHERE id_question = ".$id_question." AND juste = 1");
           $req->execute();
           $reponseJuste=$req->fetchAll();
 
-          /* Gestion du cas ou le candidat aurait selectionné trop de cases */
+
           if (count($tab) != count($reponseJuste['id_reponse'])) {
             $nbrPoints--;
           }
@@ -186,6 +187,6 @@ class BDD{
           }
         }
         return $nbrPoints;
-      }
+      }*/
     }
     ?>

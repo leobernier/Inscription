@@ -42,7 +42,7 @@ function get_ip() {
       2. Chaque bonne réponse vous octroie un point.<br/>
       3. Chaque mauvaise réponse vous en retire un.<br/>
       4. Les question a choix multiple peuvent necessiter plusieurs réponses.<br/>
-      5. Chaque réponse non répondue sera comptée comme fausse.<br/>
+      5. Chaque réponse non répondue compte pour 0.<br/>
       6. Vous devez obtenir un total de 5 points.<br/>
       7. Si vous n'obtenez pas le nombre de points exigés, vous ne pourrez plus procéder à votre inscription.<br/>
     </p>
