@@ -71,5 +71,47 @@ $nbrPoints = $goClassBDD->repCBOK($ReponseQ3CB, $nbrPoints);
 $nbrPoints = $goClassBDD->repCBOK($ReponseQ4CB, $nbrPoints);
 $nbrPoints = $goClassBDD->repCBOK($ReponseQ5CB, $nbrPoints);
 
-echo 'nombre de points = '.$nbrPoints;
+$pourcentageReussite = ($nbrPoints*100)/5;
+
+var_dump($pourcentageReussite);
+?>
+<?php
+if ($nbrPoints>=3) {
+?>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      Vous avez réussi.
+      Vous avez obtenus <?= $nbrPoints ?> réponses justes.
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      Pourcentage de réussite : <?= $pourcentageReussite ?> %
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <a href="#"><input type="button" />Poursuivre</a>
+    </div>
+  </div>
+</div>
+<?php
+}else {
+?>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      Vous avez échoué.
+      Vous avez obtenus <?= $nbrPoints ?> réponses justes.
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      Pourcentage de réussite : <?= $pourcentageReussite ?> %
+    </div>
+  </div>
+</div>
+<?php
+}
 ?>

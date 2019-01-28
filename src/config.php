@@ -139,19 +139,20 @@ class BDD{
 
       /* Calcul des points pour les RB */
       public function repRBOK($repRB, $nbrPoints){
+var_dump($repRB);
         $bdd = $this->accesBDD();
         if (empty($repRB)) {
           $nbrPoints=$nbrPoints;
         }
         else {
-          $req=$bdd->prepare("SELECT juste FROM reponses WHERE id_reponse = '".$repRB."'");
-          $req->execute();
+          $req=$bdd->prepare("SELECT juste FROM reponses WHERE id_reponse = :id");
+          $req->execute(array(
+            'id' =>(int)$repRB
+          ));
+
           $resultat=$req->fetch();
-          if($resultat == 1){
+          if($resultat['juste'] == '1'){
             $nbrPoints++;
-          }
-          else {
-            $nbrPoints--;
           }
         }
         return $nbrPoints;
@@ -181,9 +182,6 @@ class BDD{
 
           if (empty($egalite)) {
             $nbrPoints++;
-          }
-          else {
-            $nbrPoints--;
           }
         }
         return $nbrPoints;
