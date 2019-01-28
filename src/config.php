@@ -139,7 +139,6 @@ class BDD{
 
       /* Calcul des points pour les RB */
       public function repRBOK($repRB, $nbrPoints){
-var_dump($repRB);
         $bdd = $this->accesBDD();
         if (empty($repRB)) {
           $nbrPoints=$nbrPoints;

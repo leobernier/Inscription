@@ -1,4 +1,4 @@
-<?php
+<?php include('header.php');
 include('config.php');
 
 $ReponseQ1CB = array();
@@ -13,8 +13,6 @@ $ReponseQ5CB = array();
 $ReponseQ5RB = "";
 
 $count=0;
-
-// var_dump($_POST);
 
 foreach ($_POST as $key=>$value) {
   for ($i=1; $i <6 ; $i++) {
@@ -72,8 +70,6 @@ $nbrPoints = $goClassBDD->repCBOK($ReponseQ4CB, $nbrPoints);
 $nbrPoints = $goClassBDD->repCBOK($ReponseQ5CB, $nbrPoints);
 
 $pourcentageReussite = ($nbrPoints*100)/5;
-
-var_dump($pourcentageReussite);
 ?>
 <?php
 if ($nbrPoints>=3) {
@@ -92,7 +88,7 @@ if ($nbrPoints>=3) {
   </div>
   <div class="row">
     <div class="col-md-12">
-      <a href="#"><input type="button" />Poursuivre</a>
+      <button type="button" class="btn btn-primary">Poursuivre</button>
     </div>
   </div>
 </div>
