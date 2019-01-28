@@ -6,4 +6,4 @@ INSERT INTO `questions`(`question`) VALUES ('Le nombre binaire 1011 vaut en déc
 ('Quelle est la monnaie du Cambodge ?'),
 ('Combien l ONU reconnait il d Etats dans le monde ?'),
 ('Combien l ONU reconnait il d Etats indépendants dans le monde ?'),
-('Combien d Etats sont reconnaus à travers le monde par le Canada ?')
+('Combien d Etats sont reconnus à travers le monde par le Canada ?')
