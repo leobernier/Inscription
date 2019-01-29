@@ -88,7 +88,7 @@ if ($nbrPoints>=3) {
   </div>
   <div class="row">
     <div class="col-md-12">
-      <button type="button" class="btn btn-primary">Poursuivre</button>
+      <a href="formulaire.php"><button type="button" class="btn btn-primary">Poursuivre</button></a>
     </div>
   </div>
 </div>
