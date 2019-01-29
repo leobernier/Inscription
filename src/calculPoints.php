@@ -1,6 +1,14 @@
 <?php include('header.php');
 include('config.php');
+session_start();
 
+$goClassBDD = new BDD;
+
+/* Enregistrement du résultat sous format JSON => UPDATE en fonction ip */
+$resultatJSON = json_encode($_POST);
+$goClassBDD->insertionResultatsJSONSelonIp($_SESSION['ip'], $resultatJSON);
+
+/* Déclaration des tableaux contenants les résultats du test */
 $ReponseQ1CB = array();
 $ReponseQ1RB = "";
 $ReponseQ2CB = array();
@@ -14,6 +22,7 @@ $ReponseQ5RB = "";
 
 $count=0;
 
+/* Répartition des résultats dans les tableaux idoines */
 foreach ($_POST as $key=>$value) {
   for ($i=1; $i <6 ; $i++) {
     switch ($key) {
@@ -55,8 +64,7 @@ foreach ($_POST as $key=>$value) {
 
 $nbrPoints = 0;
 
-$goClassBDD = new BDD;
-
+/* Calcul du nombre de points */
 $nbrPoints = $goClassBDD->repRBOK($ReponseQ1RB, $nbrPoints);
 $nbrPoints = $goClassBDD->repRBOK($ReponseQ2RB, $nbrPoints);
 $nbrPoints = $goClassBDD->repRBOK($ReponseQ3RB, $nbrPoints);
@@ -69,8 +77,11 @@ $nbrPoints = $goClassBDD->repCBOK($ReponseQ3CB, $nbrPoints);
 $nbrPoints = $goClassBDD->repCBOK($ReponseQ4CB, $nbrPoints);
 $nbrPoints = $goClassBDD->repCBOK($ReponseQ5CB, $nbrPoints);
 
+/* Calcul du pourcentage de réussite */
 $pourcentageReussite = ($nbrPoints*100)/5;
 ?>
+
+<!-- Affichage de la page en fonction des résultats !-->
 <?php
 if ($nbrPoints>=3) {
   ?>
@@ -87,7 +98,7 @@ if ($nbrPoints>=3) {
   </div>
   <div class="row">
     <div class="col-md-12">
-      <a href="formulaire.php"><button type="button" class="btn btn-primary">Poursuivre</button></a>
+      <a href="formulaire.php"><button type="button" class="btn btn-success">POURSUIVRE</button></a>
     </div>
   </div>
   <?php
@@ -104,8 +115,8 @@ if ($nbrPoints>=3) {
       Pourcentage de réussite : <?= $pourcentageReussite ?> %
     </div>
     <div class="row">
-      <div class="btn btn-danger btn-lg active commencer">
-        QUITTER
+      <div class="col-md-12">
+        <a href="index.php"><button type="button" class="btn btn-danger">QUITTER</button></a>
       </div>
     </div>
   </div>

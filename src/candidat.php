@@ -1,5 +1,6 @@
 <?php include('header.php');
 include('config.php');
+session_start();
 
 /* Recupère l'adresse ip. ATTENTION, en localhost, ce sera toujours ::1 */
 function get_ip() {
@@ -12,6 +13,9 @@ function get_ip() {
  }
 
   $ip = get_ip();
+
+  /* Enregistrement de l'ip en session pour faire enregistrement des résultats une fois ceux ci effectués */
+  $_SESSION['ip']=$ip;
 
   $goClassBDD = new BDD;
   // renvoi false si le candidat est nouveau et true s'il existe déjà

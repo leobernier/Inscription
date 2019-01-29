@@ -1,5 +1,6 @@
 <style><?php include('../css/traitement.css') ?></style>
 <?php include('../config.php');
+session_start();
 
 $q = new BDD;
 /* Afichage liste questions */

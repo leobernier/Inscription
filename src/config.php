@@ -185,5 +185,14 @@ class BDD{
         }
         return $nbrPoints;
       }
+
+      /* Update de l'ip pour insérer resultat sous format JSON */
+      public function insertionResultatsJSONSelonIp($ip, $resultatJSON){
+        $bdd = $this->accesBDD();
+        $req=$bdd->prepare("UPDATE adresse_ip SET adresse_ip WHERE id_adresse_ip = :ip");
+        $req->execute(array(
+          'ip'=>$ip
+        ));
+      }
     }
     ?>
