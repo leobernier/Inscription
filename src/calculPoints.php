@@ -20,31 +20,31 @@ foreach ($_POST as $key=>$value) {
       case 'reponseID-CB-1-'.$i:
       array_push($ReponseQ1CB, $value);
       break;
-      case 'reponseID-RB-1-'.$i:
+      case 'reponseID-RB-1':
       $ReponseQ1RB = $value;
       break;
       case 'reponseID-CB-2-'.$i:
       array_push($ReponseQ2CB, $value);
       break;
-      case 'reponseID-RB-2-'.$i:
+      case 'reponseID-RB-2':
       $ReponseQ2RB =$value;
       break;
       case 'reponseID-CB-3-'.$i:
       array_push($ReponseQ3CB, $value);
       break;
-      case 'reponseID-RB-3-'.$i:
+      case 'reponseID-RB-3':
       $ReponseQ3RB = $value;
       break;
       case 'reponseID-CB-4-'.$i:
       array_push($ReponseQ4CB, $value);
       break;
-      case 'reponseID-RB-4-'.$i:
+      case 'reponseID-RB-4':
       $ReponseQ4RB = $value;
       break;
       case 'reponseID-CB-5-'.$i:
       array_push($ReponseQ5CB, $value);
       break;
-      case 'reponseID-RB-5-'.$i:
+      case 'reponseID-RB-5':
       $ReponseQ5RB = $value;
       break;
       default:

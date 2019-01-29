@@ -17,7 +17,7 @@ foreach($questions as $valueQ) {
     $reponses = $q->listeReponses($valueQ['id_question']);
     foreach ($reponses as $valueR) {
       if ($valueR['type']=="radio") {
-        echo '<input class="tabReponses" type="radio" name="reponseID-RB-'.$compteur.'-'.++$compteurR.'" value="'.$valueR['id_reponse'].'"/><label for="reponseID">&nbsp;&nbsp;'.$valueR['texte'].'</label><br>';
+        echo '<input class="tabReponses" type="radio" name="reponseID-RB-'.$compteur.'" value="'.$valueR['id_reponse'].'"/><label for="reponseID">&nbsp;&nbsp;'.$valueR['texte'].'</label><br>';
       }else{
         echo '<input class="tabReponses" type="checkbox" name="reponseID-CB-'.$compteur.'-'.++$compteurR.'" value="'.$valueR['id_reponse'].'"/><label for="reponseID">&nbsp;&nbsp;'.$valueR['texte'].'</label><br>';
       }
