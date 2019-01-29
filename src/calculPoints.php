@@ -73,16 +73,15 @@ $pourcentageReussite = ($nbrPoints*100)/5;
 ?>
 <?php
 if ($nbrPoints>=3) {
-?>
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      Vous avez réussi.
+  ?>
+  <div class="container">
+    <div class="row" style="color:green; font-size:40px">
+      REUSSITE
+    </div>
+    <div class="row">
       Vous avez obtenus <?= $nbrPoints ?> réponses justes.
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
+    <div class="row">
       Pourcentage de réussite : <?= $pourcentageReussite ?> %
     </div>
   </div>
@@ -91,23 +90,26 @@ if ($nbrPoints>=3) {
       <a href="formulaire.php"><button type="button" class="btn btn-primary">Poursuivre</button></a>
     </div>
   </div>
-</div>
-<?php
+  <?php
 }else {
-?>
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      Vous avez échoué.
+  ?>
+  <div class="container">
+    <div class="row" style="color:red; font-size: 40px;">
+      <strong>ECHEC</strong>
+    </div>
+    <div class="row">
       Vous avez obtenus <?= $nbrPoints ?> réponses justes.
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
+    <div class="row">
       Pourcentage de réussite : <?= $pourcentageReussite ?> %
     </div>
+    <div class="row">
+      <div class="btn btn-danger btn-lg active commencer">
+        QUITTER
+      </div>
+    </div>
   </div>
-</div>
-<?php
+  <?php
 }
+include('footer.php');
 ?>
