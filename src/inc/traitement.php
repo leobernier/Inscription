@@ -1,6 +1,6 @@
 <style><?php include('../css/traitement.css') ?></style>
-<?php include('../config.php');
-session_start();
+<?php
+include('../config.php');
 
 $q = new BDD;
 /* Afichage liste questions */
@@ -25,6 +25,6 @@ foreach($questions as $valueQ) {
     }
   echo '<br>';
 }
-echo '<input type="submit" value="Envoyer les réponses"/>';
+echo '<input type="submit" class="btn btn-primary" value="Envoyer les réponses"/>';
 echo '</form>'
 ?>

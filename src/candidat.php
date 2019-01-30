@@ -1,4 +1,5 @@
-<?php include('header.php');
+<?php
+include('header.php');
 include('config.php');
 session_start();
 
@@ -60,6 +61,4 @@ function get_ip() {
 </div>
 <script src="js/main.js" charset="utf-8"></script>
 
-<?php
-//}
-?>
+<?php include('footer.php'); ?>

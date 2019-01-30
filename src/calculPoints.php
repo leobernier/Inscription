@@ -1,12 +1,14 @@
-<?php include('header.php');
+<?php
+include('header.php');
 include('config.php');
+
 session_start();
 
 $goClassBDD = new BDD;
 
-/* Enregistrement du résultat sous format JSON => UPDATE en fonction ip */
+/* Enregistrement dans un cookie du résultat sous format JSON */
 $resultatJSON = json_encode($_POST);
-$goClassBDD->insertionResultatsJSONSelonIp($_SESSION['ip'], $resultatJSON);
+$_SESSION['resultatJSON']=$resultatJSON;
 
 /* Déclaration des tableaux contenants les résultats du test */
 $ReponseQ1CB = array();
