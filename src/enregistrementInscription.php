@@ -6,7 +6,6 @@ include('header.php');
 //var_dump($_POST);
 //var_dump(json_decode($_SESSION['resultatJSON']));
 
-
 if(ISSET($_POST['Nom']) && ISSET($_POST['Prenom']) && ISSET($_POST['Email']) && ISSET($_POST['Telephone']) && ISSET($_POST['Telephone_portable'])
 &&ISSET($_POST['Adresse']) && ISSET($_POST['Ville']) && ISSET($_POST['Code_postal']) && ISSET($_POST['Date_naissance']) && ISSET($_POST['Niveau_etude']))
 {

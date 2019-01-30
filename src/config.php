@@ -198,7 +198,7 @@ var_dump($resultatJSON);
           'code_postal'=>$code_postal,
           'date_naissance'=>$date_naissance,
           'niveau_etude'=>$niveau_etude,
-          'id_adresse_ip'=>$id_adresse_ip,
+          'id_adresse_ip'=>(int)$id_adresse_ip,
           'resultat'=>$resultatJSON
         ));
       }
