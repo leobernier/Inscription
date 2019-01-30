@@ -26,5 +26,5 @@ foreach($questions as $valueQ) {
   echo '<br>';
 }
 echo '<input type="submit" class="btn btn-primary" value="Envoyer les réponses"/>';
-echo '</form>'
+echo '</form>';
 ?>

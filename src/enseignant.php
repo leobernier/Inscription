@@ -6,7 +6,7 @@
     <form method="POST" action="consultation.php" >
       <div class="form-group row">
         <label for="Identifiant">Identifiant :</label>
-        <input type="text" class="form-control" name="Nom" value="" required>
+        <input type="text" class="form-control" name="Identifiant" value="" required>
       </div>
       <div class="form-group row">
         <label for="MotDePasse">Mot de passe :</label>

@@ -174,8 +174,6 @@ class BDD{
   $niveau_etude, $resultatJSON){
     $bdd = $this->accesBDD();
 
-var_dump($resultatJSON);
-
     /* Récupération id_adresse_ip */
     $req=$bdd->prepare("SELECT id_adresse_ip FROM adresse_ip WHERE adresse_ip = :adresse_ip");
     $req->execute(array(
@@ -184,23 +182,48 @@ var_dump($resultatJSON);
     $id_adresse_ip = $req->fetch();
 
     /* Insertion du candidat */
-    $req = $bdd->prepare("INSERT INTO CANDIDAT (nom, prenom, mail, tel, tel_portable, adresse, ville, code_postal,
-      date_naissance, niveau_etude, id_adresse_ip, resultat) VALUES (:nom, :prenom, :mail, :tel, :tel_portable,
-        :adresse, :ville, :code_postal, :date_naissance, :niveau_etude, :id_adresse_ip, :resultat)");
-        $req->execute(array(
-          'nom'=>$nom,
-          'prenom'=>$prenom,
-          'mail'=>$mail,
-          'tel'=>$tel,
-          'tel_portable'=>$tel_portable,
-          'adresse'=>$adresse,
-          'ville'=>$ville,
-          'code_postal'=>$code_postal,
-          'date_naissance'=>$date_naissance,
-          'niveau_etude'=>$niveau_etude,
-          'id_adresse_ip'=>(int)$id_adresse_ip,
-          'resultat'=>$resultatJSON
-        ));
+    $req = $bdd->prepare("INSERT INTO candidat (nom, prenom, mail, tel, tel_portable, adresse, ville, code_postal,
+    date_naissance, niveau_etude, id_adresse_ip, resultat) VALUES (:nom, :prenom, :mail, :tel, :tel_portable,
+    :adresse, :ville, :code_postal, :date_naissance, :niveau_etude, :id_adresse_ip, :resultat)");
+      $req->execute(array(
+        'nom'=>$nom,
+        'prenom'=>$prenom,
+        'mail'=>$mail,
+        'tel'=>$tel,
+        'tel_portable'=>$tel_portable,
+        'adresse'=>$adresse,
+        'ville'=>$ville,
+        'code_postal'=>$code_postal,
+        'date_naissance'=>$date_naissance,
+        'niveau_etude'=>$niveau_etude,
+        'id_adresse_ip'=>(int)$id_adresse_ip,
+        'resultat'=>$resultatJSON
+      ));
+    }
+
+    /* Vérifie si le formateur est enregistré dans la base de données */
+    public function motDePasseValide($Identifiant, $MotDePasse){
+      $bdd = $this->accesBDD();
+      $req=$bdd->prepare("SELECT * FROM formateur WHERE mdp = :mdp AND identifiant = :identifiant");
+      $req->execute(array(
+        'mdp'=>$MotDePasse,
+        'identifiant'=>$Identifiant
+      ));
+      $resultat = $req->fetch();
+
+      if (empty($resultat)) {
+        return false;
+      }else {
+        return true;
       }
     }
-    ?>
+
+    /* Récupère tous les candidats ayant réussi le test d'entrée */
+    public function tousCandidatsValide(){
+      $bdd = $this->accesBDD();
+      $req = $bdd->prepare("SELECT * FROM candidat");
+      $req->execute();
+      return $req->fetchAll();
+    }
+  }
+  ?>
