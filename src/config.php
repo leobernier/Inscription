@@ -200,30 +200,5 @@ class BDD{
         'resultat'=>$resultatJSON
       ));
     }
-
-    /* Vérifie si le formateur est enregistré dans la base de données */
-    public function motDePasseValide($Identifiant, $MotDePasse){
-      $bdd = $this->accesBDD();
-      $req=$bdd->prepare("SELECT * FROM formateur WHERE mdp = :mdp AND identifiant = :identifiant");
-      $req->execute(array(
-        'mdp'=>$MotDePasse,
-        'identifiant'=>$Identifiant
-      ));
-      $resultat = $req->fetch();
-
-      if (empty($resultat)) {
-        return false;
-      }else {
-        return true;
-      }
-    }
-
-    /* Récupère tous les candidats ayant réussi le test d'entrée */
-    public function tousCandidatsValide(){
-      $bdd = $this->accesBDD();
-      $req = $bdd->prepare("SELECT * FROM candidat");
-      $req->execute();
-      return $req->fetchAll();
-    }
   }
   ?>
