@@ -1,23 +1,61 @@
-$('.test').hide();
-var eo = '12';
-$( ".commencer" ).click(function() {
-  $( ".intro" ).hide();
-  $('.test').show();
-    // J'initialise le variable box
-    // Je définis ma requête ajax
-    var nav = '12';
-  $.ajax({
-      // Adresse à laquelle la requête est envoyée
-      url : 'inc/traitement.php',
-      type : 'POST',
-      data : "m=" + nav ,
-      dataType : 'html', // On désire recevoir du HTML
-      success : function(data, statut){ // code_html contient le HTML renvoyé
-        $('.test').html(data);
-      },
-      error : function(resultat, statut, erreur){
-        console.log('erreur');
-      }
+$(document).ready(function () {
+
+  $('.intro, .introBtn, #2, #3, #4, #5').hide().removeClass('d-none');
+
+  $("#consignesbtn").click(function(){
+    $('.intro').fadeIn();
   });
 
+  $("#ckbxClick").click(function(){
+    $('.introBtn').fadeIn();
+  });
+
+  $("#questionS1").click(function(){
+    $('#1').hide();
+    $('#2').show();
+  });
+
+  $("#questionS2").click(function(){
+    $('#2').hide();
+    $('#3').show();
+  });
+
+  $("#questionS3").click(function(){
+    $('#3').hide();
+    $('#4').show();
+  });
+
+  $("#questionS4").click(function(){
+    $('#4').hide();
+    $('#5').show();
+  });
+
+  $("#questionP2").click(function(){
+    $('#2').hide();
+    $('#1').show();
+  });
+
+  $("#questionP3").click(function(){
+    $('#3').hide();
+    $('#2').show();
+  });
+
+  $("#questionP4").click(function(){
+    $('#4').hide();
+    $('#3').show();
+  });
+
+  $("#questionP5").click(function(){
+    $('#5').hide();
+    $('#4').show();
+  });
 });
+
+function afficheModal(){
+  console.log('truc chouette');
+  $("#modal").modal({
+   escapeClose: false,
+   clickClose: false,
+   showClose: false
+ });
+}
