@@ -14,7 +14,7 @@ if (empty($_POST['test'])) {
   $compteur = 0;
   $compteurQ = 0;
 
-  echo '<div class="container"><div class="row"><div class="col-md-4"></div><div class="col-md-4"><form method="POST" action="traitement.php" align="center" id="form"><input type="hidden" name="test" value="1">';
+  echo '<div class="container"><div class="row"><div class="col-md-3"></div><div class="col-md-6"><form method="POST" action="traitement.php" align="center" id="form"><input type="hidden" name="test" value="1">';
   foreach($questions as $valueQ) {
     $compteurR = 0;
     ++$compteur;
@@ -76,11 +76,32 @@ if (empty($_POST['test'])) {
       echo '</div></div></div>';
     }
   }
-  echo '</form></div><div class="col-md-4"></div></div></div>';
-  ?>
+  echo '</form></div><div class="col-md-3"></div></div></div>';
+  echo'<br/>';
+  echo '<div id="rebours" class="reboursColor" align="center"></div>';
+  echo '</div>';
 
-<div id="rebours"></div>
-<?php
+  /* Affichage du chronomètre */
+  ?>
+  <script>
+  var seconds = 20;
+  setInterval( function(){
+    --seconds;
+    var chrono = document.getElementById('rebours');
+    if(seconds>=1){chrono.innerHTML = seconds;}
+    if(seconds <=10){
+      chrono.classList.remove('reboursColor');
+      chrono.classList.add('reboursColorWarning');
+    }
+    if(seconds <=5){
+      chrono.classList.remove('reboursColorWarning');
+      chrono.classList.add('reboursColorDanger');
+    }
+    if (seconds==0) {$('#form').submit();}
+  }, 1000);
+  </script>
+
+  <?php
 }else {
   /* Enregistrement dans un cookie du résultat sous format JSON */
   $resultatJSON = json_encode($_POST);
@@ -161,17 +182,22 @@ if (empty($_POST['test'])) {
   if ($nbrPoints>=3) {
     ?>
     <div class="container" id="modal">
-      <div class="row" style="color:green; font-size:40px">
-        REUSSITE
+      <div class="row modalRowReussite modal-header">
+        <div class="col-md-12" align="center">
+          REUSSITE
+        </div>
       </div>
       <div class="row">
-        Vous avez obtenus <?= $nbrPoints ?> réponses justes.
+        <div class="col-md-12" align="center">
+          <br/>
+          Vous avez obtenus <?= $nbrPoints ?> réponses justes.<br/>
+          <br/>
+          Pourcentage de réussite : <?= $pourcentageReussite ?> %.<br/>
+          <br/>
+        </div>
       </div>
-      <div class="row">
-        Pourcentage de réussite : <?= $pourcentageReussite ?> %
-      </div>
-      <div class="row">
-        <div class="col-md-12">
+      <div class="row modal-footer" align="center">
+        <div class="col-md-12" align="center">
           <a href="formulaire.php"><button type="button" class="btn btn-success">POURSUIVRE</button></a>
         </div>
       </div>
@@ -183,17 +209,22 @@ if (empty($_POST['test'])) {
   }else {
     ?>
     <div class="container" id="modal">
-      <div class="row" style="color:red; font-size: 40px;">
-        <strong>ECHEC</strong>
+      <div class="row modalRowEchec modal-header" align="center">
+        <div class="col-md-12" align="center">
+          ECHEC
+        </div>
       </div>
       <div class="row">
-        Vous avez obtenus <?= $nbrPoints ?> réponses justes.
+        <div class="col-md-12" align="center">
+          <br/>
+          Vous avez obtenus <?= $nbrPoints ?> réponses justes.<br/>
+          <br/>
+          Pourcentage de réussite : <?= $pourcentageReussite ?> %<br/>
+          <br/>
+        </div>
       </div>
-      <div class="row">
-        Pourcentage de réussite : <?= $pourcentageReussite ?> %
-      </div>
-      <div class="row">
-        <div class="col-md-12">
+      <div class="row modal-footer" align="center">
+          <div class="col-md-12" align="center">
           <a href="index.php"><button type="button" class="btn btn-danger">QUITTER</button></a>
         </div>
       </div>
@@ -204,18 +235,5 @@ if (empty($_POST['test'])) {
     <?php
   }
 }
-?>
-
-<!-- Règle le compte à rebours -->
-<script>
-var seconds = 5;
-setInterval( function(){
-  --seconds;
-  if(seconds>=1)document.getElementById('rebours').innerHTML = "Vous allez être redirigé automatiquement<br>sur la page d'accueil dans "+seconds+" seconde(s) !";
-  if (seconds==0) { $('#form').submit();
-}
-}, 1000);
-</script>
-<?php
 include('footer.php');
 ?>

@@ -52,7 +52,6 @@ $(document).ready(function () {
 });
 
 function afficheModal(){
-  console.log('truc chouette');
   $("#modal").modal({
    escapeClose: false,
    clickClose: false,

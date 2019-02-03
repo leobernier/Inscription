@@ -62,3 +62,27 @@ a{
 .container:hover .middle {
   opacity: 1;
 }
+
+.reboursColor{
+  font-size: 50px;
+  color:green;
+}
+
+.reboursColorWarning{
+  font-size: 50px;
+  color:orange;
+}
+
+.reboursColorDanger{
+  font-size: 50px;
+  color:red;
+}
+
+.modalRowReussite{
+  color:green;
+  font-size: 40px;
+}
+.modalRowEchec{
+  color:red;
+  font-size: 40px;
+}
