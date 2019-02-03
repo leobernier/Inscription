@@ -82,7 +82,20 @@ a{
   color:green;
   font-size: 40px;
 }
+
 .modalRowEchec{
   color:red;
   font-size: 40px;
+}
+
+.suiPrecMep{
+  margin-top: 30px;
+}
+
+.subMep{
+  margin-top: 30px;
+}
+
+.repMep{
+  margin-left: 200px;
 }
