@@ -224,7 +224,7 @@ if (empty($_POST['test'])) {
         </div>
       </div>
       <div class="row modal-footer" align="center">
-          <div class="col-md-12" align="center">
+        <div class="col-md-12" align="center">
           <a href="index.php"><button type="button" class="btn btn-danger">QUITTER</button></a>
         </div>
       </div>

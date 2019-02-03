@@ -1,9 +1,14 @@
 <?php include('header.php');?>
 
 <div class="container">
-  <h2>Formulaire d'inscription</h2>
+  <div class="row">
+    <div class="col-md-4 offset-4" align="center">
+      <h2>Formulaire d'inscription</h2>
+    </div>
+  </div>
   <div class='row'>
-    <form method="POST" action="enregistrementInscription.php" >
+    <div class="col-md-4 offset-4">
+    <form method="POST" action="enregistrementInscription.php">
       <div class="form-group row">
         <label for="Nom">Nom :</label>
         <input type="text" class="form-control" name="Nom" value="" required>
@@ -48,7 +53,8 @@
         <button type="submit" class="btn btn-primary">Envoyer</button>
       </div>
     </form>
-  </div>
+
+    </div>
 </div>
 
 <?php include('footer.php'); ?>

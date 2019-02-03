@@ -3,12 +3,6 @@ session_start();
 include('config.php');
 include('header.php');
 
-var_dump($_POST);
-echo'id';
-var_dump($_SESSION['ip']);
-echo'json';
-var_dump($_SESSION['resultatJSON']);
-
 if(ISSET($_POST['Nom']) && ISSET($_POST['Prenom']) && ISSET($_POST['Email']) && ISSET($_POST['Telephone']) && ISSET($_POST['Telephone_portable'])
 &&ISSET($_POST['Adresse']) && ISSET($_POST['Ville']) && ISSET($_POST['Code_postal']) && ISSET($_POST['Date_naissance']) && ISSET($_POST['Niveau_etude']))
 {
