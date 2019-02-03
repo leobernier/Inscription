@@ -84,7 +84,7 @@ if (empty($_POST['test'])) {
   /* Affichage du chronomètre */
   ?>
   <script>
-  var seconds = 20;
+  var seconds = 30;
   setInterval( function(){
     --seconds;
     var chrono = document.getElementById('rebours');
