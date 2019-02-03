@@ -16,6 +16,9 @@ if (empty($_POST['test'])) {
   ?>
   <div class="container">
     <div class="row">
+      <div class="col-md-4 offset-4" id="checkedOK" align="center"></div>
+    </div>
+    <div class="row">
       <div class="col-md-6 offset-3">
         <form method="POST" action="traitement.php" id="form">
           <input type="hidden" name="test" value="1">

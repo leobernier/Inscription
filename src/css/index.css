@@ -99,3 +99,11 @@ a{
 .repMep{
   margin-left: 200px;
 }
+
+#checkedOK{
+  margin-bottom: 20px;
+  height: 25px;
+  border-radius: 20px;
+  background-color: lightgrey;
+  color: red;
+}
