@@ -14,14 +14,15 @@ if(ISSET($_POST['Nom']) && ISSET($_POST['Prenom']) && ISSET($_POST['Email']) && 
   ?>
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-12 finTexte" align="center">
         <span>Merci pour votre participation !</span></br>
-        <span>Un email a été envoyé aux directrices de formation.</span></br>
-        <span>Elles vous contacteront rapidement pour poursuivre les démarches.</span></br>
+      </div>
+      <div class="col-md-12 finTexte" align="center">
+        <span>Vous serez contacté rapidement pour poursuivre les démarches.</span></br>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-12">
+    <div class="row" align="center">
+      <div class="col-md-12 finBtn">
         <a href="index.php"><button type="button" class="btn btn-primary">QUITTER</button></a>
       </div>
     </div>
@@ -31,12 +32,12 @@ if(ISSET($_POST['Nom']) && ISSET($_POST['Prenom']) && ISSET($_POST['Email']) && 
   ?>
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-12 finTexte" align="center">
         <span>Une erreur est survenue. Contactez le centre de formation.</span></br>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-12 finBtn" align="center">
         <a href="index.php"><button type="button" class="btn btn-primary">QUITTER</button></a>
       </div>
     </div>

@@ -26,6 +26,7 @@ if (empty($_POST['test'])) {
           foreach($questions as $valueQ) {
             $compteurR = 0;
             ++$compteur;
+            /* Gestion de la question 1 */
             if ($compteur=="1") {
               ?>
               <div class="row" id="<?=$compteur?>">
@@ -60,6 +61,7 @@ if (empty($_POST['test'])) {
                 </div>
               </div>
               <?php
+              /* Gestion de la question 5 */
             }elseif($compteur=="5") {
               ?>
               <div class="row d-none" id="<?=$compteur?>">
@@ -94,6 +96,7 @@ if (empty($_POST['test'])) {
                 </div>
               </div>
               <?php
+              /* Gestion des autres questions */
             }else {
               ?>
               <div class="row d-none" id="<?=$compteur?>">
@@ -142,6 +145,7 @@ if (empty($_POST['test'])) {
   </div>
 </div>
 
+<!-- Script du chronomètre -->
 <script>
 var seconds = 1000;
 setInterval( function(){
@@ -238,6 +242,7 @@ setInterval( function(){
   /* Calcul du pourcentage de réussite */
   $pourcentageReussite = ($nbrPoints*100)/5;
 
+  /* Affichage dans modale en fonction du résultat du test */
   if ($nbrPoints>=3) {
     ?>
     <div class="container" id="modal">
