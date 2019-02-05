@@ -3,4 +3,4 @@
 ## Projet Web POEC
 
 
-Lien google slides : https://docs.google.com/presentation/d/1Nz3fBzDFi75XC1fRVz6j09KLfepG2UBF5-TsqYdRo20/edit?usp=sharing
+Lien google slides : https://docs.google.com/presentation/d/1ePU9ISQ2I5HQTOdTGz02JLlSjNTDbqnvu_gAQcnKHx4/edit#slide=id.g4f3cadc214_0_225
