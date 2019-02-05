@@ -147,7 +147,7 @@ if (empty($_POST['test'])) {
 
 <!-- Script du chronomètre -->
 <script>
-var seconds = 1000;
+var seconds = 50;
 setInterval( function(){
   --seconds;
   var chrono = document.getElementById('rebours');

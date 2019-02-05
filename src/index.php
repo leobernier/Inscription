@@ -63,10 +63,8 @@ $resultat = $goClassBDD->testIP($ip);
         1. Vous ne pouvez passez le test <strong>qu'une seule fois</strong>.<br/>
         2. Les question a choix multiple peuvent necessiter plusieurs réponses.<br/>
         3. Chaque bonne réponse vous octroie un point.<br/>
-        4. Chaque mauvaise réponse compte pour 0.<br/>
-        5. Chaque réponse non répondue compte pour 0.<br/>
-        6. Vous devez obtenir un total de 3 points.<br/>
-        7. Si vous n'obtenez pas le nombre de points exigés, vous ne pourrez plus procéder à votre inscription.<br/>
+        4. Chaque réponse mauvaise ou non répondue compte pour 0.<br/>
+        5. Vous devez obtenir un total de 3 points.<br/>
       </p>
       <br />
       <input type="checkbox" id="ckbxClick">  J'ai bien compris les consignes et je suis prêt pour passer le test</input>

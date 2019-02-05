@@ -2,6 +2,9 @@ body{
   font-family: 'Anton', sans-serif;
 }
 
+.footer{
+  margin-top: 5%;
+}
 a{
   text-decoration : none;
 }
